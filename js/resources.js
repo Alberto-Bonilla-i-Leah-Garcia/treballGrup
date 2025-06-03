@@ -20,7 +20,8 @@ export const game_logic = {
     initialTotal: 3,
 
     bonus: 10,
-    penality: -5
+    penality: -5,
+    score: 0
 
 }
 

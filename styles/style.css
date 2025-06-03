@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 #timer {
   position: absolute;
-  top: 20px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 32px;
@@ -19,7 +20,7 @@
   width: 100%;
   height: 100%;
   background: rgba(50, 50, 50, 0.5);
-  z-index: 98;           /* debajo de los botones */
+  z-index: 98;           
 }
 
 #pause-label {
@@ -34,13 +35,13 @@
   padding: 12px 32px;
   border-radius: 12px;
   border: 3px solid #ffffff;
-  z-index: 99;           /* encima del overlay pero debajo de los botones */
+  z-index: 99;           
   text-shadow: 2px 2px 6px #000;
 }
 
 #pause, #return {
   position: relative;
-  z-index: 100;          /* 🔥 Los botones encima de todo */
+  z-index: 100;          
 }
 
 body {
@@ -48,11 +49,11 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 0;
-  background-color: #999; /* o lo que tengas de fondo */
+  background-color: #999; 
   font-family: Arial, sans-serif;
 }
 main, header {
-  width: 800px; /* o lo que use tu juego */
+  width: 800px; 
   max-width: 100%;
 }
 #game {
@@ -91,12 +92,72 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25); /* oscurece el fondo ligeramente */
+  background: rgba(0, 0, 0, 0.25); 
   z-index: -1;
 }
-
 
 html, body {
   height: 100%;
   margin: 0;
+}
+#score {
+  position: absolute;
+  top: 10px;
+  right: 30%;
+  left: auto;
+  transform: none;
+  font-size: 32px;
+  font-family: monospace;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+  border-radius: 8px;
+  z-index: 100;
+}
+
+#title {
+  font-family: 'Press Start 2P', monospace;
+  margin-top: 150px;
+  font-size: 70px;
+   color: #e7d9b4; 
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  text-shadow:
+    1px 1px 0 #3b2f25,
+    2px 2px 0 #3b2f25,
+    3px 3px 0 #3b2f25,
+    4px 4px 0 #3b2f25,
+    5px 5px 12px #2f1c12,
+    0 0 10px rgba(100, 255, 100, 0.3); 
+}
+#title_game{
+  font-family: 'Press Start 2P', monospace;
+  font-size:30px;
+  color: #e7d9b4; 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow:
+    1px 1px 0 #3b2f25,
+    2px 2px 0 #3b2f25,
+    3px 3px 0 #3b2f25,
+    4px 4px 0 #3b2f25,
+    5px 5px 12px #2f1c12,
+    0 0 10px rgba(100, 255, 100, 0.3); 
+}
+
+#play{
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  font-family: 'Arial Black', sans-serif;
+  color:#49dc0e;
+  background-color:#a04000;
+  padding: 12px 32px;
+  border-radius: 12px;
+  border: 3px solid #ffffff;
+  text-shadow: 2px 2px 6px #000;
 }
