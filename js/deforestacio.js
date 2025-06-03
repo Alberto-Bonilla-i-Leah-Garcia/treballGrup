@@ -3,30 +3,27 @@ import { game_measures as measures } from "./resources.js";
 import { state_control as sController } from "./resources.js";
 import { game_logic as gl } from "./resources.js";
 import { paused } from "./resources.js";
+import { assets } from "./resources.js"
 
 export let game = function (){
-    const tree = '../assets/tree.png';
-    const branchDestroyed = '../assets/empty.png';
-    const branchtypes = ['../assets/branch.png'];
+    
     const branch = { 
-        current: branchDestroyed,
+        branch: null,
+        current: assets.branchDestroyed,
         indexPos: 0,
         sidePos: false,
         clickable: true,
-        waiting: true,
         onChanged: function (){
             this.changeCallback(this);
         },
         destroy: function (){
-            this.current = branchDestroyed;
+            this.current = assets.branchDestroyed;
             this.clickable = false;
-            this.waiting = true;
             this.onChanged();
         },
         spawn: function (pos, side){
             this.current = this.branch;
             this.clickable = true;
-            this.waiting = false;
             this.indexPos = pos
             this.sidePos = side
         }
@@ -35,57 +32,72 @@ export let game = function (){
     const shuffe = arr => arr.sort(()=> Math.random() - 0.5);
 
     let p = {
-        branchs: [],
-        remainingBranchs: 0,
+        branchsGood: [],
+        branchsBad: [],
+        remainingBranchsGood: 0,
+        remainingBranchsBad: 0,
         treeCount: 0,
     };
 
     return {
         createBranchs: function (call){
-            let items = branchtypes.slice();
-            shuffe(items);
-            let aux = [];
-            for(let i = 0; i < 2; i++){
-                aux = aux.concat(items);
-            }                       
-            items = aux;
-            shuffe(items);
-            p.branchs = items.map((item, indx) => {
+            let items = [];
+            for(let i = 0; i < gl.initialTotal; i++){   //Emplenar l'array de branques bones
+               items.push(assets.branchGood);   
+            }
+            p.branchsGood = items.map((item, indx) => {
                 let it = Object.create(branch);
                 it.current = it.branch = item;
                 it.changeCallback = call;
                 return it;
             });
-            p.remainingBranchs = p.branchs.length
+            p.branchsBad = [assets.branchBad].map((item, indx) => {
+                let it = Object.create(branch);
+                it.current = it.branch = item;
+                it.changeCallback = call;
+                return it;
+            });
+            p.remainingBranchsGood = p.branchsGood.length;
+            p.remainingBranchsBad = p.branchsBad.length;
             this.generateBranchsPosition();
-            return p.branchs;
+            return p.branchsGood.concat(p.branchsBad);
         },
 
         clickBranch: function (branch){
             if(paused) return;
             if (!branch.clickable) return;
             branch.destroy();
-            p.remainingBranchs--;
-            if (p.remainingBranchs === 0){ //No queden branques
+            
+            if (branch.branch == assets.branchBad){
+                p.remainingBranchsBad--;
+                tController.addTime(gl.penality);
+            }else
+                p.remainingBranchsGood--;
+
+            if (p.remainingBranchsGood === 0){ //No queden branques
                 p.treeCount++;
                 this.generateBranchsPosition();
-                p.remainingBranchs = p.branchs.length
+                p.remainingBranchsGood = p.branchsGood.length;
+                p.remainingBranchsBad = p.branchsBad.length;
                 tController.addTime(gl.bonus);
             } else { //Queden branques
             }
+            console.log(p.remainingBranchsGood, p.remainingBranchsBad);
         },
 
         generateBranchsPosition: function (){
             let posR = [];
             let posL = [];
+            let branchs = p.branchsGood.concat(p.branchsBad);
             for(let i = 0; i < measures.spawnPointsR.length; i++)
                 posR.push(i);
             for(let i = 0; i < measures.spawnPointsL.length; i++)
                 posL.push(i);
             shuffe(posR);
             shuffe(posL);
+            shuffe(branchs); //No es necessari (ja es busca una posició aleatoria)
             let side;
-            p.branchs.forEach(b => {
+            branchs.forEach(b => {
                 side = null;
                 while( !side && (posL.length || posR.length)){
                     if (Math.round(Math.random())){

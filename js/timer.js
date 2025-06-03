@@ -9,7 +9,7 @@ export let timer = function () {
     function showTime(){
         const minutos = Math.floor(segons / 60);
         const seg = segons % 60;
-        timerLabel.text( `${String(minutos).padStart(2, '0')}:${String(seg).padStart(2, '0')}`);
+        timerLabel.text( `${String(minutos).padStart(2, '0')}:${String(seg).padStart(2, '0')}` );
     }
 
     function update() {
@@ -28,7 +28,5 @@ export let timer = function () {
             segons += num;
             showTime();
         }
-
-
     }
 }();
