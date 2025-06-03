@@ -20,7 +20,6 @@
   height: 100%;
   background: rgba(50, 50, 50, 0.5);
   z-index: 98;           /* debajo de los botones */
-  display: none;
 }
 
 #pause-label {
@@ -36,7 +35,6 @@
   border-radius: 12px;
   border: 3px solid #ffffff;
   z-index: 99;           /* encima del overlay pero debajo de los botones */
-  display: none;
   text-shadow: 2px 2px 6px #000;
 }
 
@@ -62,7 +60,7 @@ main, header {
   display: flex;
   justify-content: center;
 }
-#pause-buttons {
+#game-buttons {
   position: fixed;
   top: 72%;
   left: 50%;
@@ -70,6 +68,17 @@ main, header {
   display: flex;
   gap: 16px;
   z-index: 100;
+}
+#game-buttons button {
+  font-size: 20px;
+  font-family: 'Arial Black', sans-serif;
+  color: #49dc0e;
+  background-color: #a04000;
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 3px solid #ffffff;
+  text-shadow: 2px 2px 6px #000;
+  position: static;
 }
 body {
   background-image: url('../assets/forest_image.png');
@@ -85,17 +94,7 @@ body::before {
   background: rgba(0, 0, 0, 0.25); /* oscurece el fondo ligeramente */
   z-index: -1;
 }
-#pause-buttons button {
-  font-size: 20px;
-  font-family: 'Arial Black', sans-serif;
-  color: #49dc0e;
-  background-color: #a04000;
-  padding: 8px 16px;
-  border-radius: 12px;
-  border: 3px solid #ffffff;
-  text-shadow: 2px 2px 6px #000;
-  position: static;
-}
+
 
 html, body {
   height: 100%;

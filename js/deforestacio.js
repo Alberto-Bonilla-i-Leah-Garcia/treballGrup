@@ -1,4 +1,7 @@
+import { timer as tController } from "./timer.js";
 import { game_measures as measures } from "./resources.js";
+import { state_control as sController } from "./resources.js";
+import { paused } from "./resources.js";
 
 export let game = function (){
     const tree = '../assets/tree.png';
@@ -34,7 +37,6 @@ export let game = function (){
         branchs: [],
         remainingBranchs: 0,
         treeCount: 0,
-        paused: false
     };
 
     return {
@@ -57,8 +59,9 @@ export let game = function (){
             this.generateBranchsPosition();
             return p.branchs;
         },
+
         clickBranch: function (branch){
-            if(p.paused) return;
+            if(paused) return;
             if (!branch.clickable) return;
             branch.destroy();
             p.remainingBranchs--;
@@ -102,10 +105,7 @@ export let game = function (){
         },
 
         pauseGame: function (){
-            p.paused = !p.paused
+            sController.togglePause();
         },
-        getPaused: function () {
-        return p.paused;
-    }
     };
 }();

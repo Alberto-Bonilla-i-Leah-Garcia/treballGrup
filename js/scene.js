@@ -1,6 +1,6 @@
 import { game as gController } from "./deforestacio.js";
+import { timer as tController } from "./timer.js";
 import { game_measures as measures } from "./resources.js";
-import { iniciarTemporizador } from "./phaserGame.js";
 
 export class PlayScene extends Phaser.Scene{
     constructor (){
@@ -19,7 +19,8 @@ export class PlayScene extends Phaser.Scene{
     }
 
     create() {
-        iniciarTemporizador();
+        tController.start();
+
         this.cameras.main.setBackgroundColor(0xE69873);
 
         this.g_branchs = this.physics.add.staticGroup();
