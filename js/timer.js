@@ -11,7 +11,6 @@ export let timer = function () {
         const seg = segons % 60;
         timerLabel.text( `${String(minutos).padStart(2, '0')}:${String(seg).padStart(2, '0')}` );
     }
-
     function update() {
         if (paused) return;
         segons--;

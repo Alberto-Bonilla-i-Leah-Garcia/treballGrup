@@ -1,25 +1,23 @@
 import { game_logic as gl } from "./resources.js";
 
 
-export let timer = function () {
+export let score = function () {
     let scoreLabel = $('#score');
-    let score = gl.score;
+    let score = gl.initialScore;
 
     function update() {
-        scoreLabel.text(gl.score);
+        scoreLabel.text(score);
     }
 
     return {
-        addScore: function (points) {
-            gl.score += points;
-            update();
-        },
         reset: function () {
-            gl.score = 0;
+            score = 0;
             update();
         },
-        get: function () {
-            return gl.score;
+
+        addScore: function (points) {
+            score += points;
+            update();
         }
     }
 }();

@@ -9,19 +9,23 @@ export const game_measures = {
 
     //Punts on poden apareixer les branques
     left: 185.5,
-    spawnPointsL: [100,300],
+    spawnPointsL: [100,250,400],
     right: 614.5,
-    spawnPointsR: [100,300]
+    spawnPointsR: [100,250,400]
 }
 
 export const game_logic = {
-    //Temps inicial en segons
+    //Time
     initialTime: 120,
+
+    //Branchs
     initialTotal: 3,
 
+    //Score
+    initialScore: 0,
     bonus: 10,
     penality: -5,
-    score: 0
+    
 
 }
 

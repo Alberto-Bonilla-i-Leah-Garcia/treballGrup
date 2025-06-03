@@ -1,6 +1,7 @@
 import { timer as tController } from "./timer.js";
+import { score as sController } from "./score.js";
 import { game_measures as measures } from "./resources.js";
-import { state_control as sController } from "./resources.js";
+import { state_control as state } from "./resources.js";
 import { game_logic as gl } from "./resources.js";
 import { paused } from "./resources.js";
 import { assets } from "./resources.js"
@@ -75,7 +76,7 @@ export let game = function (){
                 p.remainingBranchsGood--;
 
             if (p.remainingBranchsGood === 0){ //No queden branques
-                p.treeCount++;
+                sController.addScore(1);
                 this.generateBranchsPosition();
                 p.remainingBranchsGood = p.branchsGood.length;
                 p.remainingBranchsBad = p.branchsBad.length;
