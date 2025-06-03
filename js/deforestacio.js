@@ -103,6 +103,9 @@ export let game = function (){
 
         pauseGame: function (){
             p.paused = !p.paused
-        }
+        },
+        getPaused: function () {
+        return p.paused;
+    }
     };
 }();
