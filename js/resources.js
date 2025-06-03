@@ -13,13 +13,13 @@ export const game_measures = {
 export const game_logic = {
     //Temps inicial en segons
     initialTime: 120,
-    
-    //Variables "globals" que es comparteixen el timer i la logica del joc
-    currentTime: 120,
+
+    bonus: 10,
+    penality: 5
+
 }
 
 export let paused = false;
-
 
 export const state_control = {
     togglePause: function(){

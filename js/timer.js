@@ -6,19 +6,29 @@ export let timer = function () {
     let timerInterval;
     let segons = gl.initialTime;
 
-    function update() {
-        if (paused) return;
-        segons--;
+    function showTime(){
         const minutos = Math.floor(segons / 60);
         const seg = segons % 60;
         timerLabel.text( `${String(minutos).padStart(2, '0')}:${String(seg).padStart(2, '0')}`);
+    }
+
+    function update() {
+        if (paused) return;
+        segons--;
+        showTime();
     }
 
     return {
         start: function () {
             if (timerInterval) clearInterval(timerInterval);
             timerInterval = setInterval(update, 1000);
-            update();
+            showTime();
+        },
+        addTime: function (num){
+            segons += num;
+            showTime();
         }
+
+
     }
 }();

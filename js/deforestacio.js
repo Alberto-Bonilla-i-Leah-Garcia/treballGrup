@@ -1,6 +1,7 @@
 import { timer as tController } from "./timer.js";
 import { game_measures as measures } from "./resources.js";
 import { state_control as sController } from "./resources.js";
+import { game_logic as gl } from "./resources.js";
 import { paused } from "./resources.js";
 
 export let game = function (){
@@ -69,8 +70,8 @@ export let game = function (){
                 p.treeCount++;
                 this.generateBranchsPosition();
                 p.remainingBranchs = p.branchs.length
+                tController.addTime(gl.bonus);
             } else { //Queden branques
-
             }
         },
 
