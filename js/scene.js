@@ -16,8 +16,6 @@ export class PlayScene extends Phaser.Scene{
     create() {
         tController.start();
 
-        this.cameras.main.setBackgroundColor(0xE69873);
-
         this.g_branchs = this.physics.add.staticGroup();
 
         this.branchs.forEach((b, i)=> {

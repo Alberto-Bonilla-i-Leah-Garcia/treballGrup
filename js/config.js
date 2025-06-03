@@ -6,6 +6,8 @@ var config = {
     domCreateContainer: true,
     width: measures.width,
     height: measures.height,
+    backgroundColor: 0x00000, 
+    transparent: true,            
     parent: 'game',
     scene: [PlayScene],
     physics: {
