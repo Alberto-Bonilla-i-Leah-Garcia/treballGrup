@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 #timer {
   position: absolute;
-  top: 20px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 32px;
@@ -95,8 +96,68 @@ body::before {
   z-index: -1;
 }
 
-
 html, body {
   height: 100%;
   margin: 0;
+}
+#score {
+  position: absolute;
+  top: 10px;
+  right: 80px;
+  left: auto;
+  transform: none;
+  font-size: 32px;
+  font-family: monospace;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+  border-radius: 8px;
+  z-index: 100;
+}
+
+#title {
+  font-family: 'Press Start 2P', monospace;
+  margin-top: 150px;
+  font-size: 60px;
+   color: #e7d9b4; /* marrón frontal */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  text-shadow:
+    1px 1px 0 #3b2f25,
+    2px 2px 0 #3b2f25,
+    3px 3px 0 #3b2f25,
+    4px 4px 0 #3b2f25,
+    5px 5px 12px #2f1c12,
+    0 0 10px rgba(100, 255, 100, 0.3); /* leve brillo mágico */
+}
+#title_game{
+  font-family: 'Press Start 2P', monospace;
+  font-size:30px;
+  color: #e7d9b4; /* marrón frontal */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow:
+    1px 1px 0 #3b2f25,
+    2px 2px 0 #3b2f25,
+    3px 3px 0 #3b2f25,
+    4px 4px 0 #3b2f25,
+    5px 5px 12px #2f1c12,
+    0 0 10px rgba(100, 255, 100, 0.3); /* leve brillo mágico */
+}
+
+#play{
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  font-family: 'Arial Black', sans-serif;
+  color:#49dc0e;
+  background-color:#a04000;
+  padding: 12px 32px;
+  border-radius: 12px;
+  border: 3px solid #ffffff;
+  text-shadow: 2px 2px 6px #000;
 }

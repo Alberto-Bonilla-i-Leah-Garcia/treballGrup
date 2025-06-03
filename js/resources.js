@@ -15,7 +15,8 @@ export const game_logic = {
     initialTime: 120,
 
     bonus: 10,
-    penality: 5
+    penality: 5,
+    score: 0
 
 }
 
