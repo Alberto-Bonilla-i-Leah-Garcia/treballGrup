@@ -103,7 +103,7 @@ html, body {
 #score {
   position: absolute;
   top: 10px;
-  right: 80px;
+  right: 30%;
   left: auto;
   transform: none;
   font-size: 32px;
