@@ -96,9 +96,14 @@ export let game = function (){
         gameOver: function (){
             console.log("Game Over");
             stateCotroller.setGameOver();
+            $('#gameOver-elements').show();
         },
         pauseGame: function (){
+            if(state.gameOver) return;
             stateCotroller.togglePause();
+
+            // Mostrar o Amagar
+            $('#pause-elements').toggle(paused);
         }
     };
 }();
