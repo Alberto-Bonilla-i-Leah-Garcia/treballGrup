@@ -1,4 +1,4 @@
-import { game_logic as gl } from "./resources.js";
+import { gameLogic as gl } from "./resources.js";
 
 
 export let score = function () {

@@ -1,4 +1,4 @@
-export const game_measures = {
+export const gameMeasures = {
     //Game Size
     width: 800,
     height: 600,
@@ -14,7 +14,7 @@ export const game_measures = {
     spawnPointsR: [100,250,400]
 }
 
-export const game_logic = {
+export const gameLogic = {
     //Time
     initialTime: 30,
 
@@ -40,11 +40,18 @@ export const flowState = [
 ];
 
 
-export let paused = false;
+export let state = {
+    paused: false,
+    gameOver: false
+}
 
-export const state_control = {
+export const stateModifier = {
     togglePause: function(){
-        paused = !paused
+        state.paused = !paused
+    },
+    setGameOver: function(){
+        state.paused = true;
+        state.gameOver = true;
     }
 }
 

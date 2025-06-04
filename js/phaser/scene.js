@@ -1,6 +1,6 @@
 import { game as gController } from "../deforestacio.js";
 import { timer as tController } from "../utility/timer.js";
-import { game_measures as measures } from "../utility/resources.js";
+import { gameMeasures as measures } from "../utility/resources.js";
 import { assets } from "../utility/resources.js"
 
 export class PlayScene extends Phaser.Scene{
@@ -14,7 +14,9 @@ export class PlayScene extends Phaser.Scene{
     }
 
     create() {
-        tController.start();
+        tController.start(() => {
+            gController.gameOver();
+        });
 
         this.g_branchs = this.physics.add.staticGroup();
 
