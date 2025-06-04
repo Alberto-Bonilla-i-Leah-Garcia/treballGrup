@@ -3,21 +3,22 @@ import { game_logic as gl } from "./resources.js";
 
 export let score = function () {
     let scoreLabel = $('#score');
-    let score = gl.initialScore;
 
-    function update() {
+    function update(score) {
         scoreLabel.text(score);
     }
 
     return {
+        score : gl.initialScore,
+
         reset: function () {
-            score = 0;
-            update();
+            this.score = 0;
+            update(this.score);
         },
 
         addScore: function (points) {
-            score += points;
-            update();
+            this.score += points;
+            update(this.score);
         }
     }
 }();

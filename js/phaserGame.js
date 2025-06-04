@@ -1,5 +1,5 @@
 import { game as gController } from "./deforestacio.js";
-import { paused } from "./resources.js";
+import { paused } from "./utility/resources.js";
 
 let pauseScreen = $('#pause-elements');
 pauseScreen.hide();

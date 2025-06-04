@@ -1,7 +1,7 @@
-import { game as gController } from "./deforestacio.js";
-import { timer as tController } from "./timer.js";
-import { game_measures as measures } from "./resources.js";
-import { assets } from "./resources.js"
+import { game as gController } from "../deforestacio.js";
+import { timer as tController } from "../utility/timer.js";
+import { game_measures as measures } from "../utility/resources.js";
+import { assets } from "../utility/resources.js"
 
 export class PlayScene extends Phaser.Scene{
     constructor (){
@@ -34,6 +34,7 @@ export class PlayScene extends Phaser.Scene{
             b.x = this.branchs[i].sidePos ? measures.left : measures.right;
             b.y = this.branchs[i].sidePos ? measures.spawnPointsL[this.branchs[i].indexPos] : measures.spawnPointsR[this.branchs[i].indexPos];
             b.setFlipX(!this.branchs[i].sidePos);
+            b.setActive(this.branchs[i].visible).setVisible(this.branchs[i].visible);
         }
         );
     }

@@ -16,18 +16,29 @@ export const game_measures = {
 
 export const game_logic = {
     //Time
-    initialTime: 120,
-
-    //Branchs
-    initialTotal: 3,
+    initialTime: 30,
 
     //Score
     initialScore: 0,
-    bonus: 10,
-    penality: -5,
+    bonus: 5,
+    penality: 15,
     
-
 }
+
+export const flowState = [
+        { bGood:4, bBad:4 }, //Maximes branques
+        { bGood:1, bBad:0 }, //Lvl 1
+        { bGood:2, bBad:0 }, //...
+        { bGood:2, bBad:1 },
+        { bGood:2, bBad:2 },
+        { bGood:3, bBad:1 },
+        { bGood:3, bBad:1 },
+        { bGood:3, bBad:2 },
+        { bGood:3, bBad:3 },
+        { bGood:4, bBad:1 },
+        { bGood:4, bBad:2 }, //Lvl 10
+];
+
 
 export let paused = false;
 

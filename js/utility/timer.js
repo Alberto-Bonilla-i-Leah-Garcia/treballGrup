@@ -23,9 +23,17 @@ export let timer = function () {
             timerInterval = setInterval(update, 1000);
             showTime();
         },
-        addTime: function (num){
-            segons += num;
+        addBonusTime: function (){
+            segons += gl.bonus;
+            showTime();
+        },
+        subPenalityTime: function (){
+            segons -= gl.penality;
             showTime();
         }
+        
+
+
+
     }
 }();

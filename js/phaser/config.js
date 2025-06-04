@@ -1,5 +1,5 @@
 import { PlayScene } from "./scene.js";
-import { game_measures as measures } from "./resources.js";
+import { game_measures as measures } from "../utility/resources.js";
 
 var config = {
     type: Phaser.AUTO,
